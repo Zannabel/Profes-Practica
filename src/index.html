@@ -7,27 +7,90 @@
     <title>Profesores</title>
 </head>
 <body>
-    <h1>Hola</h1>
     <header>
         <h1> Profesores </h1>
+    <header class="my-3">
+        <h1 class="text-center"> Profesores </h1>
     </header>
 
     <main class="container">
-        <section>
-            <article>
+
+        <section class="row text-center">
+            <article class="col-xs-12 col-md-6">
                 imagen
             </article>
-            <article>
+            <article class="col-xs-12 col-md-6">
                 Formulario
             </article>
         </section>
-        <section>
+        <section class="row">
             <table></table>
+            <div class="col-12">
+                <table class="table table-hover">
+
+                    <caption>
+                        Registros de los profesores
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Id del profesor
+                            </th>
+                            <th scope="col">
+                                Nombre
+                            </th>
+                            <th scope="col">
+                                Descripción
+                            </th>
+                            <th scope="col">
+                                Correo
+                            </th>
+                            <th scope="col">
+                                Fecha de nacimiento
+                            </th>
+                            <th>
+                                Opciones
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                840804
+                            </td>
+                            <td>
+                                Ana Isabel
+                            </td>
+                            <td>
+                                Da clases de programación
+                            </td>
+                            <td>
+                                a@z.com
+                            </td>
+                            <td>
+                                14/08/2004
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary">
+                                    <em class="fa fa-pencil"></em> Editar
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <em class="fa fa-trash"></em> Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 
     <footer>
         Derechos reservados por Ana <em class="fa-regular fa-copyright"></em>
     </footer>
+
 </body>
+
 </html>
