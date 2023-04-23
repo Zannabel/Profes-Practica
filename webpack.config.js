@@ -1,5 +1,15 @@
+// Sirve para identificar la ruta de donde se encuentra este archivo
 const path = require('path');
+
+// Me permite trabajar con documentos html
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// Extraer el codigo css, minificarlo y optimizarlo. Además lo agrega como parte del head
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// Nos permite copiar archivos de una ruta a otra
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
     return {
@@ -29,36 +39,16 @@ module.exports = (env, argv) => {
                             presets: ['@babel/preset-env']
                         }
                     }
-                },
-                {
-                    test: /\.(png|jpg|jpeg|gif|svg)$/,
-                    use:[
-                        {
-                            loader: 'url-loader',
-                            options: {
-                                limit: 8192,
-                                name: 'assets/img/[name].[ext]'
-                            }
-                        }
-                    ]
                 }
             ]
         },
         plugins: [
             new HtmlWebpackPlugin({
                 template: './src/index.html',
+                chunks: ['index'],
                 chunks: ['index', 'styles']
             }),
-            // averiguar que significa un spread operator
-            ...(isProduction ? [new MiniCssExtractPlugin({ filename: 'assets/css/[name].[contenthash].css' })] : []),
-            new CopyWebpackPlugin({
-                patterns: [
-                    {
-                        from: './src/assets/img',
-                        to: 'assets/img'
-                    }
-                ]
-            })
+            ...(isProduction ? [new MiniCssExtractPlugin({ filename: 'assets/css/[name].[contenthash].css'})] : [])
         ],
         devServer: {
             static: {
@@ -71,4 +61,5 @@ module.exports = (env, argv) => {
             ]
         }
     };
-}
+} 
+        
