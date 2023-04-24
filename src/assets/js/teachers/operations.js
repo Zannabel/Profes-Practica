@@ -1,7 +1,8 @@
 // Encargado de la interacción de js con html
 import { formElements, getFormData } from "./form";
+import { createTeacher } from './repository';
 
-export function addEventListener() {
+export function listeners() {
     window.addEventListener('load', () => {
         listenFormSubmitEvent();
     });
@@ -10,6 +11,6 @@ export function addEventListener() {
 function listenFormSubmitEvent() {
     formElements.form.addEventListener('submit', (event) => {
         event.preventDefault();
-        console.log(getFormData());
+        createTeacher(getFormData());
     });
 }
